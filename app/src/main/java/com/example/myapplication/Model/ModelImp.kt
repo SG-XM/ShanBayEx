@@ -1,4 +1,4 @@
-package com.example.myapplication.Model
+﻿package com.example.myapplication.Model
 
 import android.util.Log
 import com.example.myapplication.PresentAPI.PresenterImp
@@ -59,7 +59,7 @@ class ModelImp(val presenter: PresenterImp) : ModelAPI {
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build()
         //巨坑：提交格式为json需要GsonConverter，但是就不能添加ScalarsConverter，于是只能手动转换json
-        val obj = Gson().toJson(LoginBody("13821547562", "zh1154097852"));
+        val obj = Gson().toJson(LoginBody("USERNAME", "PASSWORD"));
         val body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), obj)
         val mApi = retrofit.create(RetrofitAPI::class.java)
         //rxjava配合retrofit
